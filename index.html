@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Recipe App</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            🍴 Foodie
+        </a>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#recipes">
+                Recipes
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <span
+                id="welcomeUser"
+                class="welcome-user">
+            </span>
+
+            <a
+                href="login.html"
+                id="loginLink"
+                class="login-link">
+                Login
+            </a>
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                style="display: none;">
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO FOODIE
+            </p>
+
+            <h1>
+                Delicious recipes
+                <span>made simple.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover delicious recipes, explore new flavors
+                and cook something amazing today.
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for recipes...">
+
+                <button id="searchBtn">
+                    🔍 Search
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-emoji">
+            🍲
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section
+        class="section"
+        id="categories">
+
+        <div class="section-heading">
+
+            <h2>
+                Explore Categories
+            </h2>
+
+            <p>
+                Choose your favorite type of food.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <button
+                class="category-btn active"
+                data-category="All">
+
+                🍽️ All
+
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="Non-Veg">
+
+                🍗 Non-Veg
+
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="Vegetarian">
+
+                🥗 Vegetarian
+
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="Dessert">
+
+                🍰 Desserts
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RECIPES ================= -->
+
+    <section
+        class="section"
+        id="recipes">
+
+        <div class="section-heading">
+
+            <h2>
+                Popular Recipes
+            </h2>
+
+            <p>
+                Explore our collection of delicious recipes.
+            </p>
+
+        </div>
+
+
+        <!-- IMPORTANT:
+             JavaScript puts all recipe cards here -->
+
+        <div
+            id="recipeGrid"
+            class="recipe-grid">
+        </div>
+
+
+        <p
+            id="noResults"
+            class="no-results"
+            style="display: none;">
+
+            No recipes found.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Foodie Recipe App
+        </p>
+
+        <p>
+            Made with ❤️ for food lovers
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/recipes.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Details - Foodie</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a
+            href="index.html"
+            class="logo">
+
+            🍴 Foodie
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#recipes">
+                Recipes
+            </a>
+
+            <a href="index.html#categories">
+                Categories
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- RECIPE DETAILS -->
+
+    <main class="recipe-detail-page">
+
+        <div
+            id="recipeDetails"
+            class="recipe-detail">
+
+        </div>
+
+    </main>
+
+
+    <script src="js/recipes.js"></script>
+
+    <script>
+
+        const recipeDetails =
+            document.getElementById("recipeDetails");
+
+
+        const storedRecipe =
+            localStorage.getItem("selectedRecipe");
+
+
+        if (!storedRecipe) {
+
+            recipeDetails.innerHTML = `
+
+                <div>
+
+                    <h1>
+                        Recipe not found
+                    </h1>
+
+                    <a
+                        href="index.html"
+                        class="back-btn">
+
+                        Back to Home
+
+                    </a>
+
+                </div>
+
+            `;
+
+        } else {
+
+            const recipe =
+                JSON.parse(storedRecipe);
+
+
+            recipeDetails.innerHTML = `
+
+                <div>
+
+                    <img
+                        src="${recipe.image}"
+                        alt="${recipe.name}"
+                        onerror="this.src='https://via.placeholder.com/600x400?text=Recipe+Image'"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <span class="tag">
+                        ${recipe.category}
+                    </span>
+
+
+                    <h1>
+                        ${recipe.name}
+                    </h1>
+
+
+                    <p class="recipe-meta">
+
+                        ⏱️ Cooking Time:
+                        ${recipe.time}
+
+                        <br>
+
+                        🍴 Type:
+                        ${recipe.type}
+
+                    </p>
+
+
+                    <h2>
+                        Ingredients
+                    </h2>
+
+
+                    <ul>
+
+                        ${recipe.ingredients
+                            .map(function (ingredient) {
+
+                                return `
+                                    <li>
+                                        ${ingredient}
+                                    </li>
+                                `;
+
+                            })
+                            .join("")
+                        }
+
+                    </ul>
+
+
+                    <h2>
+                        Cooking Instructions
+                    </h2>
+
+
+                    <ol>
+
+                        ${recipe.steps
+                            .map(function (step) {
+
+                                return `
+                                    <li>
+                                        ${step}
+                                    </li>
+                                `;
+
+                            })
+                            .join("")
+                        }
+
+                    </ol>
+
+
+                    <a
+                        href="index.html"
+                        class="back-btn">
+
+                        ← Back to Recipes
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

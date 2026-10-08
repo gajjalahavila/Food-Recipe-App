@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Foodie</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <a
+                href="index.html"
+                class="logo auth-logo">
+
+                🍴 Foodie
+
+            </a>
+
+
+            <h1>
+                Welcome Back
+            </h1>
+
+
+            <p class="auth-subtitle">
+                Login to continue cooking.
+            </p>
+
+
+            <form id="loginForm">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Login
+
+                </button>
+
+            </form>
+
+
+            <p
+                id="loginMessage"
+                class="message">
+            </p>
+
+
+            <p class="switch-auth">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Sign Up
+                </a>
+
+            </p>
+
+
+            <p class="switch-auth">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById(
+                        "loginEmail"
+                    ).value.trim();
+
+
+                const password =
+                    document.getElementById(
+                        "loginPassword"
+                    ).value;
+
+
+                const savedUser =
+                    JSON.parse(
+                        localStorage.getItem("user")
+                    );
+
+
+                if (!savedUser) {
+
+                    loginMessage.textContent =
+                        "No account found. Please sign up first.";
+
+                    loginMessage.style.color =
+                        "red";
+
+                    return;
+
+                }
+
+
+                if (
+                    email === savedUser.email &&
+                    password === savedUser.password
+                ) {
+
+                    localStorage.setItem(
+                        "currentUser",
+                        savedUser.name
+                    );
+
+
+                    loginMessage.textContent =
+                        "Login successful!";
+
+                    loginMessage.style.color =
+                        "green";
+
+
+                    setTimeout(function () {
+
+                        window.location.href =
+                            "./";
+
+                    }, 800);
+
+                } else {
+
+                    loginMessage.textContent =
+                        "Invalid email or password.";
+
+                    loginMessage.style.color =
+                        "red";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
